@@ -55,4 +55,13 @@ class UserTest < ActiveSupport::TestCase
   test "authenticated? should return false for a user with nil digest" do
 	assert_not @user.authenticated?(:remember, '')
   end
+
+  ## when a user is destroied, it's associated runs should be destroied too
+  test "associated runs should be destroyed" do
+    @user.save
+    @user.runs.create!(note: "create a run")
+    assert_difference 'Run.count', -1 do
+      @user.destroy
+    end
+  end
 end

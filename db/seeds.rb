@@ -28,4 +28,11 @@ User.create!(name:  "ADMIN User: dmxu",
 
 end
 
+users = User.order(:created_at).take(6)
+50.times do
+  note = Faker::Lorem.sentence(5)
+  users.each { |user| user.runs.create!(note: note) }
+end
+
+
 

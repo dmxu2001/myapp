@@ -1,17 +1,34 @@
 <% provide(:title, 'Home') %>
 
-<div class="center hero-unit">
-  <h1>Welcome to myapp testing code</h1>
-  <h2>
-    This is home page for 
-	<%= link_to "Profilemyrun",  action: 'index' %>
-    application.
-  </h2>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="run_form">
+        <%= render 'shared/run_form' %>
+      </section>
+    </aside>
+	<div class="col-md-8">
+      <h3>Run Post</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
 
-<%= link_to image_tag("foot.png", alt: "Profilemyrun logo", size: "200x200"),
+  <div class="center hero-unit">
+    <h1>Welcome to myapp testing code</h1>
+    <h2>
+      This is home page for 
+	  <%= link_to "Profilemyrun",  action: 'index' %>
+      application.
+    </h2>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  </div>
+  
+  <%= link_to image_tag("foot.png", alt: "Profilemyrun logo", size: "200x200"),
             'http://www.profilemyrunpromo.com/' %>
 
-
+<% end %>
 

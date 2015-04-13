@@ -1,0 +1,19 @@
+<li id="run-<%= run.id %>">
+<!--
+  <%= link_to gravatar_for(run.user), run.user %>
+-->
+  <span class="user"><%= link_to run.user.name, run.user %></span>
+  <span class="note">
+	<%= run.note %> <br>
+	<% if run.picture? %> 
+	  <%= image_tag run.picture.url %> <br>
+    <% end %>
+  </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(run.created_at) %> ago.
+	<% if current_user?(run.user) %>
+      <%= link_to "delete", run, method: :delete,
+                                 data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>
