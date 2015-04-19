@@ -1,5 +1,6 @@
 if Rails.env.production?
   CarrierWave.configure do |config|
+	config.fog_provider = 'fog-google'                        # required
     config.fog_credentials = {
       # Configuration for google cloud
       :provider              			=> 'Google',
