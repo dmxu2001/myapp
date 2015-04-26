@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @runs = @user.runs.paginate(page: params[:page])
 	##debugger
+	
+    @run = @user.runs.build
+    @feed_items = @user.feed.paginate(page: params[:page])
+
   end
 
   def new

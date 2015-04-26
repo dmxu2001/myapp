@@ -5,7 +5,7 @@
     <section class="user_info">
       <%= gravatar_for @user %>
       <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
+      <span><%= link_to "view the runner's activities", @user %></span>
       <span><b>Runner Posts:</b> <%= @user.runs.count %></span>
     </section>
     <section class="stats">
