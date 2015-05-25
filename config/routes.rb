@@ -81,3 +81,20 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+
+
+require 'api_constraints'
+Myapp::Application.routes.draw do
+
+  # Api definition
+  namespace :api, defaults: { format: :json },
+                              constraints: { subdomain: 'api' }, path: '/'  do
+    scope module: :v1,
+              constraints: ApiConstraints.new(version: 1, default: true) do
+      # We are going to list our resources here
+      # resources :csvposts
+    end
+  end
+end
+
+
