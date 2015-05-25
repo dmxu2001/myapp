@@ -23,20 +23,34 @@ gem 'pg',             		   '0.17.1'
 gem "faraday",				   '0.9.1'
 gem "faraday_middleware",	   '0.9.1'
 
+## for api
+# Use Uglifier as compressor for JavaScript assets
+gem 'active_model_serializers'
+
+
 group :development, :test do
 #  gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
+
+  gem "factory_girl_rails"
+  gem 'ffaker'
 end
 
 group :test do
   gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard-minitest',     '2.3.1'
+
+## for api
+  gem "rspec-rails", "~> 3.1"
+  gem "shoulda-matchers"
 end
 
 group :production do
   gem 'rails_12factor', '0.0.2'
   gem 'puma',           '2.11.1'
 end
+
+
