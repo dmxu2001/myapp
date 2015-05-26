@@ -46,6 +46,7 @@ group :test do
 ## for api
   gem "rspec-rails", "~> 3.1"
   gem "shoulda-matchers"
+  gem 'responders'
 end
 
 group :production do
